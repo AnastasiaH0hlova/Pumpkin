@@ -1,0 +1,24 @@
+<dialogue>
+<node>
+<npctext>Здравствуй, я Камешек!</npctext>
+<answers>
+<answer tonode = "1"><text>Ты чего тут делаешь???</text></answer>
+<answer tonode = "2"><text>Ты умеешь разговаривать?!?!</text></answer>
+<answer tonode = "0"><text>Пока, Камешек!</text><dialend>true</dialend></answer>
+</answers>
+</node>
+<node>
+<npctext>Я здесь отдыхаю, конечно же!!!</npctext>
+<answers>
+<answer tonode = "0"><text>Логично....</text><dialend>true</dialend></answer>
+<answer tonode = "0"><text>Получается камни всегда отдыхают....</text><dialend>true</dialend></answer>
+</answers>
+</node>
+<node>
+<npctext>Глупые вопросы не задавай! Ты же тоже разговариваешь!</npctext>
+<answers>
+<answer tonode = "0"><text>Действительно глупо....</text><dialend>true</dialend></answer>
+<answer tonode = "1"><text>А зачем хотя бы ты тут лежишь???</text></answer>
+</answers>
+</node>
+</dialogue>

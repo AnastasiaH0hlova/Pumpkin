@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\MainMenu.cs" />
-     <Compile Include="Assets\Scripts\Dialogue.cs" />
+     <Compile Include="Assets\Scripts\Dialog.cs" />
      <Compile Include="Assets\Scripts\PumpkinController.cs" />
      <Compile Include="Assets\Scripts\InstantiateDialogue.cs" />
      <None Include="Assets\2DBeginner_Third-PartyNotice.txt" />

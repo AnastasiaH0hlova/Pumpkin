@@ -9,20 +9,24 @@ public class PumpkinController : MonoBehaviour
 
     Rigidbody2D rigidbody2d;
 
-    Animator animator;
+    //Animator animator;
+
+    public static bool LockMovement = false;
     
-    Vector2 lookDirection = new Vector2(1, 0);
+    public Vector2 lookDirection = new Vector2(1, 0);
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!LockMovement)
+        {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -35,14 +39,28 @@ public class PumpkinController : MonoBehaviour
             lookDirection.Normalize();
         }
 
-        animator.SetFloat("Move X", lookDirection.x);
-        animator.SetFloat("Move Y", lookDirection.y);
-        animator.SetFloat("Speed", move.magnitude);
+        //animator.SetFloat("Move X", lookDirection.x);
+        //animator.SetFloat("Move Y", lookDirection.y);
+        //animator.SetFloat("Speed", move.magnitude);
 
         //��������
         rigidbody2d.velocity = new Vector2(horizontal * 10f, vertical * 10f);
 
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                if(hit.transform.GetComponent<InstantiateDialogue>())
+                {
+                    hit.transform.GetComponent<InstantiateDialogue>().ShowDialogue = true;
+                    LockMovement = true;
+                }
+            }
+        }
 
 
+
+        }
     }
 }

@@ -1,10 +1,27 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using System.Xml.Serialization;     //запись и чтение xml файла
+using System.IO;
+
+
 
 public class InstantiateDialogue : MonoBehaviour
 {
+    
+    public TextAsset ta;
+
+    public string objName = "name";
+
+     string MCName = "Pumpkin";
+    public Dialog dialogue;
+    public int currentNode = 0;
+    public bool ShowDialogue = false;
+    public GUISkin skin;
+
+    public Texture2D MCportrait;
+    public Texture2D NPCportrait;
+    /*
     public GameObject Window;
 
 
@@ -19,23 +36,58 @@ public class InstantiateDialogue : MonoBehaviour
     bool dialogueEnded = false;
 
     GameObject player;
-    public TextAsset ta;
+    
 
     [SerializeField]
     public int currentNode = 0;
     public int butClicked;
     bool textSet = false;
     Node[] nd;
-    Dialogue dialogue;
-
+    */
     void Start()
     {
+        dialogue = Dialog.Load(ta);
+        foreach(Node nd in dialogue.nodes)
+        {
+            Debug.Log(nd.Npctext);
+            foreach(Answer an in nd.answers)
+        {
+            Debug.Log(an.text);
+            if(an.end)Debug.Log("END");
+        }
+        }
+        
+    }
 
+    async void OnGUI()
+    {
+        GUI.skin = skin;
+        if (ShowDialogue) {
+            GUI.Label (new Rect (Screen.width  - 1100, Screen.height - 1100, 1600, 1600), MCportrait);
+            GUI.Label (new Rect (Screen.width/2 -900, Screen.height - 900, 1100, 1100), NPCportrait);
+            GUI.Box (new Rect (Screen.width / 2 - 800, Screen.height - 400, 1600, 500), "");
+            GUI.Label (new Rect (Screen.width / 2 - 700, Screen.height - 300, 750, 100), dialogue.nodes [currentNode].Npctext);
+            GUI.Label (new Rect (Screen.width / 2 - 700, Screen.height - 370, 1000, 100), objName);
+            GUI.Label (new Rect (Screen.width / 2 + 50 , Screen.height - 370 , 1000, 100), MCName);
+            for(int i =0;i<dialogue.nodes [currentNode].answers.Length;++i)
+            {
+                if (GUI.Button (new Rect (Screen.width / 2 + 50, Screen.height - 300 + 95 * i, 750, 95), dialogue.nodes [currentNode].answers [i].text,skin.label)){
+                    if(dialogue.nodes [currentNode].answers [i].end) 
+                    {
+                        ShowDialogue = false;
+                        PumpkinController.LockMovement = false;
+                    }
+                    currentNode = dialogue.nodes [currentNode].answers [i].nextNode;
+                }
+            }
+        }
+    }
+        /*
         secondButton.enabled = false;
         thirdButton.enabled = false;
         Window.SetActive(false);
         player = GameObject.Find("Player");
-        dialogue = Dialogue.Load(ta);
+        
         nd = dialogue.nodes;
 
 
@@ -122,6 +174,5 @@ public class InstantiateDialogue : MonoBehaviour
 
 
     }
-
-}
 */
+}
