@@ -13,7 +13,7 @@ public class InstantiateDialogue : MonoBehaviour
 
     public string objName = "name";
 
-     string MCName = "Pumpkin";
+    string MCName = "Pumpkin";
     public Dialog dialogue;
     public int currentNode = 0;
     public bool ShowDialogue = false;
@@ -65,7 +65,7 @@ public class InstantiateDialogue : MonoBehaviour
         if (ShowDialogue) {
             GUI.Label (new Rect (Screen.width  - 1100, Screen.height - 1100, 1600, 1600), MCportrait);
             GUI.Label (new Rect (Screen.width/2 -900, Screen.height - 900, 1100, 1100), NPCportrait);
-            GUI.Box (new Rect (Screen.width / 2 - 800, Screen.height - 400, 1600, 500), "");
+            GUI.Box (new Rect (Screen.width / 2 - 800, Screen.height - 500, 1600, 500), "");
             GUI.Label (new Rect (Screen.width / 2 - 700, Screen.height - 300, 750, 100), dialogue.nodes [currentNode].Npctext);
             GUI.Label (new Rect (Screen.width / 2 - 700, Screen.height - 370, 1000, 100), objName);
             GUI.Label (new Rect (Screen.width / 2 + 50 , Screen.height - 370 , 1000, 100), MCName);
