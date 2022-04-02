@@ -267,7 +267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130964325}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.46, y: 1.29, z: -10}
+  m_LocalPosition: {x: 0.7, y: -14.87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 679431130}
@@ -742,7 +742,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.46, y: 1.29, z: -10}
+  m_LocalPosition: {x: 0.7, y: -14.87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1684,7 +1684,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005846360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.46, y: 1.29, z: 0}
+  m_LocalPosition: {x: 0.7, y: -14.87, z: 0}
   m_LocalScale: {x: 0.6585, y: 0.6585, z: 0.6585}
   m_Children: []
   m_Father: {fileID: 0}
@@ -24678,7 +24678,7 @@ MonoBehaviour:
   ta: {fileID: 4900000, guid: 5b97c9e8fd5519945880b2e8b611772c, type: 3}
   objName: "\u0425\u0440\u044E\u043A"
   currentNode: 0
-  ShowDialogue: 1
+  ShowDialogue: 0
   skin: {fileID: 11400000, guid: cbb4cc6b834a4714ebc8f6a0754f703e, type: 2}
   MCportrait: {fileID: 2800000, guid: 08612dfc974ae2140b9a969b9019ef51, type: 3}
   NPCportrait: {fileID: 0}

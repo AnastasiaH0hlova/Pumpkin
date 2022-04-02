@@ -15,33 +15,46 @@ public class CutScene1 : MonoBehaviour
     public Image zatemnenieImage;
     public int mark = 0;
     public bool flag_skip = false;
+    public Text TextGameObject;
+
+    private string text;
+    private int flag_text = 0;
+    private IEnumerator coroutine;
     // Start is called before the first frame update
     void Start()
     {
-
+        text = TextGameObject.text;
+        TextGameObject.text = "";
+        coroutine = TextCoroutine();
+        StartCoroutine(coroutine);
+        flag_text = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (mark == 0 || mark == 2 || mark == 4)
+        if (mark == 0 || mark == 2 )
         {
 
             zatemnenieImage = zatemnenieObj.GetComponent<Image>();
             zatemnenieImage.color = new Color(zatemnenieImage.color.r, zatemnenieImage.color.g, zatemnenieImage.color.b, zatemnenieImage.color.a - 0.1f * Time.deltaTime);
             if (zatemnenieImage.color.a <= 0.3f) {
-                if (mark == 0) mark = 1;// + ������� ����� � 1 �����
-                if (mark == 2) mark = 3;// + ������� ����� �� 2 �����
-                if (mark == 4) mark = 5;// + ������� ����� � 3 �����
+                if (mark == 0)
+                {   
+                    mark = 1;
+                }
+                if (mark == 2) mark = 3;// + ������� ����� �� 2 �����
+                
             }
         }
-        
-        if ((Input.anyKey && mark == 1) || (Input.anyKey && mark == 3) || (Input.anyKey && mark == 5))
+
+        if ((Input.anyKey && mark == 1 && flag_text == 1) || (Input.anyKey && mark == 3) )
         {
             flag_skip = true;
+            
         }
-        if ((mark == 1 && flag_skip ) || (mark == 3 && flag_skip ) || (mark == 5 && flag_skip))
+        if ((mark == 1 && flag_skip ) || (mark == 3 && flag_skip ) )
         {
   
             zatemnenieImage.color = new Color(zatemnenieImage.color.r, zatemnenieImage.color.g, zatemnenieImage.color.b, zatemnenieImage.color.a + 0.2f * Time.deltaTime);
@@ -50,22 +63,40 @@ public class CutScene1 : MonoBehaviour
                 flag_skip = false;
                 if (mark == 1)
                 {
-                    background.GetComponent<Image>().sprite = kadr2;
-                    mark = 2;
-                }
-                if (mark == 3) {
+                    StopCoroutine(coroutine);
                     background.GetComponent<Image>().sprite = kadr3;
-                    mark = 4;
                     track.clip = track2;
                     track.volume = 0.25f;
                     track.Play();
+                    mark = 2;
+                    
+                    TextGameObject.text = "";
+                    text = "";
+                    text = "Слушай, Ты тоже видишь это? \n Да и пахнет как то странно... \n Стоп. Это что, дым??\n О Боже!! Полицейский участок горит!! Что же произошло? \n В здании же могут быть люди. Оох, а ведь у меня рабочий день даже не успел начаться :( \nВ любом случае, нужно поторопиться и всё разузнать!";
+                    TextGameObject.text = "";
+                    StartCoroutine(TextCoroutine());
+                    flag_text = 1;
                 }
-                if (mark == 5) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                if (mark == 3) {
+
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+                }
+                
 
             }
         }
         
         
     }
-    
+
+    IEnumerator TextCoroutine()
+    {
+        foreach (char a in text)
+        {
+            TextGameObject.text += a;
+            yield return new WaitForSeconds(0.08f);
+            if (mark == 2) continue;
+        }
+    }
 }
