@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PumpkinController : MonoBehaviour
 {
@@ -56,6 +57,15 @@ public class PumpkinController : MonoBehaviour
                     hit.transform.GetComponent<InstantiateDialogue>().ShowDialogue = true;
                     LockMovement = true;
                 }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("Door"));
+            if (hit.collider != null)
+            {
+                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
 

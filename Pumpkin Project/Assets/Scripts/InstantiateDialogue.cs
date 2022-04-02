@@ -66,12 +66,12 @@ public class InstantiateDialogue : MonoBehaviour
             GUI.Label (new Rect (Screen.width  - 1100, Screen.height - 1100, 1600, 1600), MCportrait);
             GUI.Label (new Rect (Screen.width/2 -900, Screen.height - 900, 1100, 1100), NPCportrait);
             GUI.Box (new Rect (Screen.width / 2 - 800, Screen.height - 500, 1600, 500), "");
-            GUI.Label (new Rect (Screen.width / 2 - 700, Screen.height - 300, 750, 100), dialogue.nodes [currentNode].Npctext);
-            GUI.Label (new Rect (Screen.width / 2 - 700, Screen.height - 370, 1000, 100), objName);
-            GUI.Label (new Rect (Screen.width / 2 + 50 , Screen.height - 370 , 1000, 100), MCName);
+            GUI.Label (new Rect (Screen.width / 2 - 700, Screen.height - 380, 750, 400), dialogue.nodes [currentNode].Npctext);
+            GUI.Label (new Rect (Screen.width / 2 - 700, Screen.height - 440, 1000, 100), objName);
+            GUI.Label (new Rect (Screen.width / 2 + 150 , Screen.height - 440 , 1000, 100), MCName);
             for(int i =0;i<dialogue.nodes [currentNode].answers.Length;++i)
             {
-                if (GUI.Button (new Rect (Screen.width / 2 + 50, Screen.height - 300 + 95 * i, 750, 95), dialogue.nodes [currentNode].answers [i].text,skin.label)){
+                if (GUI.Button (new Rect (Screen.width / 2 + 50, Screen.height - 380 + 95 * i, 750, 95), dialogue.nodes [currentNode].answers [i].text,skin.label)){
                     if(dialogue.nodes [currentNode].answers [i].end) 
                     {
                         ShowDialogue = false;
