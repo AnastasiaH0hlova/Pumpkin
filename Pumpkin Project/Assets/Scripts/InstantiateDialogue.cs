@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Xml.Serialization;     //запись и чтение xml файла
 using System.IO;
+using System.Collections.Generic;
 
 
 
@@ -21,6 +22,8 @@ public class InstantiateDialogue : MonoBehaviour
 
     public Texture2D MCportrait;
     public Texture2D NPCportrait;
+
+    public List<Answer> answers  = new List<Answer>();
     /*
     public GameObject Window;
 
@@ -57,6 +60,15 @@ public class InstantiateDialogue : MonoBehaviour
         }
         }
         
+    }
+    void Update()
+    {
+        answers.Clear();
+        for(int i =0;i<dialogue.nodes [currentNode].answers.Length;++i)
+            
+                {
+                    answers.Add(dialogue.nodes [currentNode].answers[i]);
+                }
     }
 
     async void OnGUI()

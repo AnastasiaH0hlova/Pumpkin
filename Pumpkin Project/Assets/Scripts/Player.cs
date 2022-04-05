@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Door")
         {
-            Win.text = "Win!!!";
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 

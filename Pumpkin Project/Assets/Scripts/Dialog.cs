@@ -37,10 +37,18 @@ public class Answer
 {
     [XmlAttribute("tonode")]
     public int nextNode;
+    
     [XmlElement("text")]
     public string text;
+
     [XmlElement("dialend")]
     public bool end;
+
+    [XmlAttribute("needquestvalue")]
+    public int NeedQuestValue;
+    
+
+  
 
 }
 

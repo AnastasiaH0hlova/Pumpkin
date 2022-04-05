@@ -41,7 +41,26 @@
 <node>
 <npctext>Слушай. Пожарных давно нет. Боюсь, что придётся звонить им снова. Только проблемка. Я где то оставил свой телефон. Поэтому помоги мне его найти! Точно помню, я где то тут его потерял...</npctext>
 <answers>
+<answer tonode = "7" needquestvalue = "1"><text>Это разве не твой телефон?</text><questname>Quest1</questname></answer>
 <answer tonode = "2"><text>Мда.. трэш, я попробую его найти</text><dialend>true</dialend></answer>
+</answers>
+</node>
+<node>
+<npctext>Да, это действительно он!!!! *Звонит пожарным*Они сказали, что они не приедут!!!</npctext>
+<answers>
+<answer tonode = "8"><text>Ты наверное шутишь!!! В здании же остались люди, нельзя просто оставить их там!!!!!</text></answer>
+</answers>
+</node>
+<node>
+<npctext>Может ты тогда попробуешь спасти их??????</npctext>
+<answers>
+<answer tonode = "9"><text>Ну и попробую!!!!</text><dialend>true</dialend></answer>
+</answers>
+</node>
+<node>
+<npctext>Чего же ты ждешь? Беги к зданию!</npctext>
+<answers>
+<answer tonode = "9"><text>Бегу.......</text><dialend>true</dialend></answer>
 </answers>
 </node>
 </dialogue>

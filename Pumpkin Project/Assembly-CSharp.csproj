@@ -43,6 +43,8 @@
      <Compile Include="Assets\Scripts\Dialog.cs" />
      <Compile Include="Assets\Scripts\PumpkinController.cs" />
      <Compile Include="Assets\Scripts\InstantiateDialogue.cs" />
+     <Compile Include="Assets\Scripts\CollectiblePhone.cs" />
+     <Compile Include="Assets\Scripts\CutScene2.cs" />
      <None Include="Assets\2DBeginner_Third-PartyNotice.txt" />
      <None Include="Assets\Dialogs\Rock.xml" />
      <None Include="Assets\Dialogs\Pig.xml" />
